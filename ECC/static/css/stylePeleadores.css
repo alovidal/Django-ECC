@@ -1,0 +1,14 @@
+.visor img{
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.card:hover{
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.20);
+}
+
+.col a{
+    text-decoration: none;
+}
+

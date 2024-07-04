@@ -1,0 +1,34 @@
+.titulo-carro{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+}
+
+.formulario{
+    padding: 20px;
+}
+
+.img-product img{
+    width: 100px;
+}
+
+.precio-final{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px 0;
+    gap: 20px;
+}
+
+.precio-final span{
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.boton-pago{
+    display: flex;
+    padding: 10px;
+    align-items: center;
+    justify-content: center;
+}

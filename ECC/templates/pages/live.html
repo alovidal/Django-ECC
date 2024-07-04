@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>El Club de los Combos</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/styleFooter.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/styleNav.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/styleLive.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/styleSeparador.css' %}" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"/>
+</head>
+<body>
+    {% include 'base/header.html'%}
+    <main>
+        <div class="top-page">
+          <div class="live-left">
+            <section class="live">
+              <div class="live-stream">
+                <iframe width="560" height="315"
+                  src="https://www.youtube.com/embed/jfKfPfyJRdk?si=k7JYRVz6qL4aMlLo"
+                  title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen
+                ></iframe>
+              </div>
+            </section>
+        
+            <section class="buttons">
+              <div class="button-bet">
+                <button class="bets">Gana</button>
+                <button class="bets">Pierde</button>
+                <button class="bets">Empate</button>
+              </div>
+            </section>
+          </div> 
+          <div class="live-right">
+            <section class="live-chat">
+              <div class="chat-stream">
+                <iframe src="https://www.youtube.com/live_chat?v=jfKfPfyJRdk&embed_domain=http://127.0.0.1:8000/live" width="400" height="500" frameborder="0"></iframe>      
+            </section>
+          </div>
+        </div>
+  
+        <section class="separator">
+          <div class="line"></div>
+          <div class="circle"></div>
+          <div class="line"></div>
+        </section>
+  
+        <div class="characteristics">
+          <section class="fighter">
+            <img src="Imagenes/jotapex.png" alt="">
+            <table class="table fighter-name"  >
+              <thead class="table-head">
+                <tr>
+                  <th class="name-fighter" scope="col">Jotapex</th>
+                  <th scope="col"></th>
+                  <th class="name-fighter" scope="col">AloVidal</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>1.74m</td>
+                  <td class="catext">Altura</td>
+                  <td>1.74m</td>
+                </tr>
+                <tr>
+                  <td>75kg</td>
+                  <td class="catext">Peso</td>
+                  <td>60kg</td>
+                </tr>
+                <tr>
+                  <td>22</td>
+                  <td class="catext">Edad</td>
+                  <td>23</td>
+                </tr>
+              </tbody>
+            </table>
+            <img src="Imagenes/alovidal.png" alt="">
+          </section>
+        </div>
+      </main>
+    {% include 'base/footer.html'%}
+</body>
+</html>
