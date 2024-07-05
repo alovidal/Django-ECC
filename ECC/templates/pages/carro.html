@@ -35,20 +35,25 @@
             <th scope="col">SubTotal</th> 
           </tr>
         </thead>
+
         <tbody>
+          {% for item in items %}
           <tr class="product">
-            <td class="img-product"><img src="/Imagenes/Merch-1-ecc.png" alt=""></td>
-            <td>Vendas El Club</td>
-            <td>$9990</td>
-            <td>1</td>
-            <td>$9990</td>
+            <td class="img-product"><img src="{{item.product.imageURL}}" alt=""></td>
+            <td>{{item.product.name}}</td>
+            <td>${{item.product.price|floatformat:0}}</td>
+            <td>{{item.quantity}}</td>
+            <td>${{item.get_total|floatformat:0}}</td>
           </tr>
+          {% endfor %}
         </tbody>
       </table>
+
+
       <div class="container-pay">
         <div class="precio-final">
           <h2>Total:</h2>
-          <span>$9990</span>
+          <span>${{order.get_cart_total|floatformat:0}}</span>
         </div>
           <div class="boton-pago">
             <button
