@@ -1,14 +1,28 @@
 from django.shortcuts import render
+from django.contrib.auth.decorators import login_required
 from .models import *
 
+def login(request):
+    return render(request, 'pages/registration/login.html')
+
+
 def index(request):
-    return render(request, 'pages/index.html')
+    context = {
+        "user": "",
+    }
+    return render(request, 'pages/index.html', context)
+
+@login_required
 
 def ranking(request):
-    return render(request, 'pages/ranking.html')
+    peleadores = Peleador.objects.all()
+    context = {'peleadores': peleadores}
+    return render(request, 'pages/ranking.html', context)
 
 def peleadores(request):
-    return render(request, 'pages/peleadores.html')
+    peleadores = Peleador.objects.all()
+    context = {'peleadores': peleadores}
+    return render(request, 'pages/peleadores.html', context)
 
 def tienda(request):
     products = Product.objects.all()
@@ -25,20 +39,23 @@ def carro(request):
     context = {'items':items, 'order':order}
     return render(request, 'pages/carro.html', context)
 
-def registro(request):
-    return render(request, 'pages/registro.html')
+def live(request):
+    return render(request, 'pages/live.html')
 
 def live(request):
     return render(request, 'pages/live.html')
 
-def login(request):
-    return render(request, 'pages/login.html')
-
 def crud(request):
-    return render(request, 'pages/crud.html')
+    usuarios = Usuario.objects.all()    
+    context = {'usuarios': usuarios}
+    return render(request, 'pages/admin/crud.html', context)
 
 def add_user(request):
-    return render(request, 'pages/add_user.html')
+    usuarios = Usuario.objects.all()    
+    context = {'usuarios': usuarios}
+    return render(request, 'pages/admin/add_user.html', context)
 
 def update_user(request):
-    return render(request, 'pages/update_user.html')
+    usuarios = Usuario.objects.all()    
+    context = {'usuarios': usuarios}
+    return render(request, 'pages/admin/update_user.html', context)

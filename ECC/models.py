@@ -1,14 +1,14 @@
 from django.db import models
 from django.contrib.auth.models import User
 
-# Create your models here.
+# Usuarios
 
 class Genero(models.Model):
     id_genero = models.AutoField(primary_key=True, db_column="idGenero")
     genero = models.CharField(max_length=25, blank=False, null=False)
 
-    def str(self):
-        return str(self.genero)
+    def __str__(self):
+        return self.genero
 
 
 class Usuario(models.Model):
@@ -26,15 +26,11 @@ class Usuario(models.Model):
     direccion = models.CharField(max_length=50, blank=True, null=True)
     activo = models.BooleanField()
 
-    def str(self):
-        return (
-            str(self.nombre)
-            + " "
-            + str(self.apellido_paterno)
-            + " "
-            + str(self.apellido_materno)
-        )
+    def __str__(self):
+        return (self.rut)+ " "+(self.nombre)+ " "+ (self.apellido_paterno)+ " "+ (self.apellido_materno)
 
+
+#Productos
 
 class Product(models.Model):
 	name = models.CharField(max_length=200)
@@ -83,3 +79,40 @@ class OrderItem(models.Model):
 	def get_total(self):
 		total = self.product.price * self.quantity
 		return total
+	
+
+#Peleadores
+
+class Categoria(models.Model):
+	id_categoria = models.AutoField(primary_key=True, db_column="idCategoria")
+	categoria = models.CharField(max_length=25, blank=False, null=False)
+
+	def __str__(self):
+		return str(self.categoria)
+
+class Peleador(models.Model):
+	nom_peleador = models.CharField(max_length=200)
+	id_categoria = models.ForeignKey(Categoria, on_delete=models.SET_NULL, null=True)
+	victoria = models.IntegerField()
+	derrota = models.IntegerField()
+	empate = models.IntegerField()
+	altura = models.FloatField()
+	peso = models.FloatField()
+	descripcion = models.CharField(max_length=300)
+	imag_peleador = models.ImageField(null=True, blank=True)
+
+	def __str__(self):
+		return str(self.nom_peleador)
+	
+	@property
+	def imageURL(self):
+		try:
+			url = self.imag_peleador.url
+		except:
+			url = ''
+		return url
+	
+	@property
+	def puntos_totales(self):
+		puntos_totales = (self.victoria * 100) + (self.empate * 50) - (self.derrota * 50)
+		return puntos_totales
