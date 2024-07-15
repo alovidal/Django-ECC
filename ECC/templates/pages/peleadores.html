@@ -1,114 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>El Club de los Combos</title>
     {% load static %}
     <link rel="stylesheet" href="{% static 'css/styleFooter.css' %}" />
     <link rel="stylesheet" href="{% static 'css/styleNav.css' %}" />
-    <link rel="stylesheet" href="{% static '/css/stylePeleadores.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/styleTienda.css' %}" />
     <link rel="stylesheet" href="{% static 'css/styleSeparador.css' %}" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"/>
-</head>
-<body>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+    />
+  </head>
+  <body>
     {% include 'base/header.html'%}
     <main>
-        <section class="visor">
-          <img src="/Imagenes/rankers2.png" alt="" />
-        </section>
-  
-        <section class="container">
-          <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
-            <div class="col">
-              <a href="peleadores/Jotapex.html">
-                <div class="card" style="margin-top: 50px">
-                  <img src="Imagenes/elmatador.png" class="card-img-top" alt="" />
-                  <div class="card-body">
-                    <h5 class="card-title"><center>El Matador</center></h5>
-                    <p class="card-text">
-                      Peso Pluma <br />15-0-0 (W-L-D) <br />Altura: 1.70m
-                      <br />Peso: 66kg
-                    </p>
-                  </div>
-                </div>
-              </a>
+      <section class="visor">
+        <img src="/Imagenes/rankers2.png" alt="" />
+      </section>
+
+      <div class="container-items">
+        {% for peleador in peleadores|slice:":6" %}
+        <div class="item">
+          <a style="text-decoration: none;" href="#">
+            <div class="card" style="margin-top: 50px">
+              <img src="{{peleador.imageURL}}" class="card-img-top" alt="" />
+              <div class="card-body">
+                <h5 class="card-title">
+                  <center>{{peleador.nom_peleador}}</center>
+                </h5>
+                <p class="card-text">
+                  {{peleador.id_categoria}}
+                  <br />{{peleador.victoria}}-{{peleador.derrota}}-{{peleador.empate}} (W-L-D) 
+                  <br />Altura: {{peleador.altura}}m 
+                  <br />Peso: {{peleador.peso}}kg
+                </p>
+              </div>
             </div>
-            <div class="col">
-              <a href="peleadores/AloVidal.html">
-                <div class="card" style="margin-top: 50px">
-                  <img src="Imagenes/alovidal.png" class="card-img-top" alt="" />
-                  <div class="card-body">
-                    <h5 class="card-title"><center>AloVidal</center></h5>
-                    <p class="card-text">
-                      Peso Pluma <br />16-0-1 (W-L-D) <br />Altura: 1.74m
-                      <br />Peso: 60kg
-                    </p>
-                  </div>
-                </div>
-              </a>
-            </div>
-            <div class="col">
-              <a href="peleadores/Jotapex.html">
-                <div class="card" style="margin-top: 50px">
-                  <img src="Imagenes/jotapex.png" class="card-img-top" alt="" />
-                  <div class="card-body">
-                    <h5 class="card-title"><center>JotaPex</center></h5>
-                    <p class="card-text">
-                      Peso Welter <br />17-0-0 (W-L-D) <br />Altura: 1.74m
-                      <br />Peso: 75kg
-                    </p>
-                  </div>
-                </div>
-              </a>
-            </div>
-          </div>
-          <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
-            <div class="col">
-              <a href="peleadores/Jotapex.html">
-                <div class="card" style="margin-top: 50px; margin-bottom: 100px">
-                  <img src="Imagenes/deprabao.png" class="card-img-top" alt="" />
-                  <div class="card-body">
-                    <h5 class="card-title"><center>El Depravao</center></h5>
-                    <p class="card-text">
-                      Peso Medio <br />14-2-1 (W-L-D) <br />Altura: 1.80m
-                      <br />Peso: 82kg
-                    </p>
-                  </div>
-                </div>
-              </a>
-            </div>
-            <div class="col">
-              <a href="peleadores/Jotapex.html">
-                <div class="card" style="margin-top: 50px; margin-bottom: 100px">
-                  <img src="Imagenes/orlangod.png" class="card-img-top" alt="" />
-                  <div class="card-body">
-                    <h5 class="card-title"><center>Orlangod</center></h5>
-                    <p class="card-text">
-                      Peso Dios <br />666-0-0 (W-L-D) <br />Altura: 1.92m
-                      <br />Peso: 90kg
-                    </p>
-                  </div>
-                </div>
-              </a>
-            </div>
-            <div class="col">
-              <a href="peleadores/Jotapex.html">
-                <div class="card" style="margin-top: 50px; margin-bottom: 100px">
-                  <img src="Imagenes/lajaula.png" class="card-img-top" alt="" />
-                  <div class="card-body">
-                    <h5 class="card-title"><center>La Jaula</center></h5>
-                    <p class="card-text">
-                      Peso Ligero <br />15-5-0 (W-L-D) <br />Altura: 1.91m
-                      <br />Peso: 70kg
-                    </p>
-                  </div>
-                </div>
-              </a>
-            </div>
-          </div>
-        </section>
-      </main>
-      {% include 'base/footer.html'%}
-</body>
+          </a>
+        </div>
+        {% endfor %}
+      </div>
+    </main>
+    {% include 'base/footer.html'%}
+  </body>
 </html>

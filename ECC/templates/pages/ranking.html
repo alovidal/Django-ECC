@@ -32,134 +32,17 @@
                 </tr>
               </thead>
               <tbody>
+                {% for peleador in peleadores %}
                 <tr>
-                  <th scope="row">1</th>
+                  <th scope="row">{{ forloop.counter }}</th>
                   <td>
-                    <a href="/peleadores/Jotapex.html">Jotapex</a>
+                    <a href="#">{{peleador.nom_peleador}}</a>
                   </td>
-                  <td>17 - 0 - 0</td>
-                  <td>1700 Pts</td>
+                  <td>{{peleador.victoria}} - {{peleador.derrota}} - {{peleador.empate}}</td>
+                  <td>{{peleador.puntos_totales}}</td>
                   <td>Sin Rango</td>
                 </tr>
-                <tr>
-                  <th scope="row">2</th>
-                  <td><a href="/peleadores/AloVidal.html">AloVidal</a></td>
-                  <td>16 - 1 - 0</td>
-                  <td>1650 Pts</td>
-                  <td>Sin Rango</td>
-                </tr>
-                <tr>
-                  <th scope="row">3</th>
-                  <td>Okamin</td>
-                  <td>15 - 1 - 0</td>
-                  <td>1550 Pts</td>
-                  <td>Sin Rango</td>
-                </tr>
-                <tr>
-                  <th scope="row">4</th>
-                  <td>Dariox87</td>
-                  <td>15 - 0 - 0</td>
-                  <td>1500 Pts</td>
-                  <td>Sin Rango</td>
-                </tr>
-                <tr>
-                  <th scope="row">5</th>
-                  <td>UsuarioNuevo</td>
-                  <td>0 - 0 - 0</td>
-                  <td>1450 Pts</td>
-                  <td>Sin Rango</td>
-                </tr>
-                <tr>
-                  <th scope="row">6</th>
-                  <td>JugadorX</td>
-                  <td>0 - 0 - 0</td>
-                  <td>1400 Pts</td>
-                  <td>Sin Rango</td>
-                </tr>
-                <tr>
-                  <th scope="row">7</th>
-                  <td>GamerZ</td>
-                  <td>0 - 0 - 0</td>
-                  <td>1350 Pts</td>
-                  <td>Sin Rango</td>
-                </tr>
-                <tr>
-                  <th scope="row">8</th>
-                  <td>MasterPlayer</td>
-                  <td>0 - 0 - 0</td>
-                  <td>1300 Pts</td>
-                  <td>Sin Rango</td>
-                </tr>
-                <tr>
-                  <th scope="row">9</th>
-                  <td>ElPro</td>
-                  <td>0 - 0 - 0</td>
-                  <td>1250 Pts</td>
-                  <td>Sin Rango</td>
-                </tr>
-                <tr>
-                  <th scope="row">10</th>
-                  <td>UltimateGamer</td>
-                  <td>0 - 0 - 0</td>
-                  <td>1200 Pts</td>
-                  <td>Sin Rango</td>
-                </tr>
-                <tr>
-                  <th scope="row">11</th>
-                  <td>GranGamer</td>
-                  <td>0 - 0 - 0</td>
-                  <td>1150 Pts</td>
-                  <td>Sin Rango</td>
-                </tr>
-                <tr>
-                  <th scope="row">12</th>
-                  <td>ProPlayer</td>
-                  <td>0 - 0 - 0</td>
-                  <td>1100 Pts</td>
-                  <td>Sin Rango</td>
-                </tr>
-                <tr>
-                  <th scope="row">13</th>
-                  <td>ÉpicoJugador</td>
-                  <td>0 - 0 - 0</td>
-                  <td>1050 Pts</td>
-                  <td>Sin Rango</td>
-                </tr>
-                <tr>
-                  <th scope="row">14</th>
-                  <td>GamerSupremo</td>
-                  <td>0 - 0 - 0</td>
-                  <td>1000 Pts</td>
-                  <td>Sin Rango</td>
-                </tr>
-                <tr>
-                  <th scope="row">15</th>
-                  <td>MaestroGaming</td>
-                  <td>0 - 0 - 0</td>
-                  <td>950 Pts</td>
-                  <td>Sin Rango</td>
-                </tr>
-                <tr>
-                  <th scope="row">16</th>
-                  <td>papanoel</td>
-                  <td>0 - 0 - 0</td>
-                  <td>940 Pts</td>
-                  <td>Sin Rango</td>
-                </tr>
-                <tr>
-                  <th scope="row">17</th>
-                  <td>Abarzua</td>
-                  <td>0 - 0 - 0</td>
-                  <td>920 Pts</td>
-                  <td>Sin Rango</td>
-                </tr>
-                <tr>
-                  <th scope="row">18</th>
-                  <td>Villalobos</td>
-                  <td>0 - 0 - 0</td>
-                  <td>920 Pts</td>
-                  <td>Sin Rango</td>
-                </tr>
+                {% endfor %}
               </tbody>
             </table>
           </section>
